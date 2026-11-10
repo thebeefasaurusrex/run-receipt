@@ -1,0 +1,25 @@
+{
+  "name": "RunReceipt fixture",
+  "engine": "auto",
+  "sources": ["project.godot", "check.gd"],
+  "checks": [
+    {
+      "id": "pass",
+      "kind": "unit",
+      "run": ["{engine}", "--headless", "--script", "check.gd", "--", "pass"],
+      "timeout_s": 15,
+      "results": ["fixture-result.json"],
+      "parser": "assertions-json",
+      "renderer": "headless/gl_compatibility"
+    },
+    {
+      "id": "broken",
+      "kind": "scenario",
+      "run": ["{engine}", "--headless", "--script", "check.gd", "--", "broken"],
+      "timeout_s": 15,
+      "results": ["fixture-result.json"],
+      "parser": "assertions-json",
+      "renderer": "headless/gl_compatibility"
+    }
+  ]
+}

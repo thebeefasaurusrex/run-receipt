@@ -1,0 +1,22 @@
+{
+  "name": "run-receipt",
+  "version": "0.1.0",
+  "description": "Run game checks and detect stale test evidence.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "bin": {
+    "run-receipt": "bin/run-receipt.mjs"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "license": "Apache-2.0"
+}
