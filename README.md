@@ -13,10 +13,10 @@ npm ci
 node bin/run-receipt.mjs --help
 ```
 
-Windows standalone Godot downloads often have versioned names. Set the path to the actual executable. In PowerShell, for example:
+Windows standalone Godot downloads often have versioned names. If PATH only provides a Godot .cmd shim, set GODOT_BIN to the full path of the actual Godot console executable (.exe). In PowerShell, for example:
 
 ```powershell
-$env:GODOT_BIN = 'C:/tools/Godot/godot.exe'
+$env:GODOT_BIN = 'C:/tools/Godot/Godot_v4.7.2-stable_win64_console.exe'
 ```
 
 On macOS or Linux, set `GODOT_BIN` with `export GODOT_BIN=/path/to/godot`. An explicit `engine` path in `gt.json` takes precedence over the environment variable. Run `npm install --global .` from the checkout if you want the `run-receipt` command on PATH.
@@ -32,7 +32,7 @@ node bin/run-receipt.mjs show broken --grep "SCRIPT ERROR" --cwd fixtures/probe
 npm test
 ```
 
-The `broken` fixture deliberately exits 1. Add a comment to the fixture's `check.gd` and rerun `last pass` to see the stale result. The tests cover real Godot runs, failure and stale detection, timeouts, and the supported report parsers.
+The `broken` fixture deliberately exits 1. The `show broken` command preserves that recorded exit code, even when it prints the expected script error. Add a comment to the fixture's `check.gd` and rerun `last pass` to see the stale result. The tests cover real Godot runs, failure and stale detection, timeouts, and the supported report parsers.
 
 ## Configure your project
 
